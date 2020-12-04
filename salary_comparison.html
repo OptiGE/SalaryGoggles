@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+        
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<!-- 
+      Här är number inputs om det skulle behövas någon gång
+      <input type="number" required name="price" min="0" value="0" step="any">
+      <input type="number" id="quantity" name="quantity" min="1" max="5">
+-->
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3"></div> <!-- TO CENTER col-sm-6 -->
+    <div class="col-sm-6">
+
+    <!-- TOP ROW -->
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Salary goggles</h4>
+            <p>Conversion between USD/yr and SEK/month</p> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h2 id="SEKRate">🇸🇪 = 0,862 USD</h2>
+            <p></p> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h2 id="USDRate">🇺🇸 = 8,62 SEK</h2>
+            <p></p> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Update rates</h4>
+            <button type="button" class="btn btn-primary">Update</button>
+          </div>
+        </div>
+      </div>
+      
+    <!-- YEAR ROW -->
+    <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Yearly salary</h4>
+            <p>Like the yankees do</p> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Yearly 🇸🇪</label>
+              <textarea class="form-control" id="YearSEK" rows="1"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Yearly 🇺🇸</label>
+              <textarea class="form-control" id="YearUSD" rows="1"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Reset calculator</h4>
+            <button type="button" class="btn btn-danger">Reset</button>
+          </div>
+        </div>
+      </div>
+
+    
+    <!-- MONTH ROW -->
+    <div class="row">
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Monthly salary</h4>
+            <p>In swede fashion</p> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Monthly 🇸🇪</label>
+              <textarea class="form-control" id="MonthSEK" rows="1"></textarea>
+            </div> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Monthly 🇺🇸</label>
+              <textarea class="form-control" id="MonthUSD" rows="1"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well">
+            <h4>Run conversions</h4>
+            <button type="button" class="btn btn-success">Success</button> 
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="col-sm-3"></div> <!-- TO CENTER col-sm-6 -->
+  </div>
+</div>
+
+</body>
+</html>
