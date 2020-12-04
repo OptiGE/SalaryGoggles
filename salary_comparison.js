@@ -36,6 +36,6 @@ function raiseforstatus(response){
 }
 
 function refreshScreen(){
-  document.getElementById("SEKRate").innerHTML = `🇸🇪 = ${USDtoSEK} USD`;
-  document.getElementById("USDRate").innerHTML = `🇺🇸 = ${SEKtoUSD} SEK`;
+  document.getElementById("SEKRate").innerHTML = `🇸🇪 <span style="font-size:16px">= ${USDtoSEK} USD</span>`;
+  document.getElementById("USDRate").innerHTML = `🇺🇸 <span style="font-size:16px">= ${SEKtoUSD} SEK</span>`;
 }
