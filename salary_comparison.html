@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="./salary_comparison.js"></script>
+  <script type="text/javascript" src="./main.js"></script>
+  <script type="text/javascript" src="./currencyRate.js"></script>
+  <script type="text/javascript" src="./allSalaries.js"></script>
   <style>
     /* Set gray background color and 100% height */
     .sidenav {
@@ -31,8 +33,8 @@
 
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-sm-3"></div> <!-- TO CENTER col-sm-6 -->
-    <div class="col-sm-6">
+    <div class="col-sm-1"></div> <!-- TO CENTER col-sm-6 -->
+    <div class="col-sm-10">
 
     <!-- TOP ROW -->
       <div class="row">
@@ -44,20 +46,20 @@
         </div>
         <div class="col-sm-3">
           <div class="well">
-            <h2 id="SEKRate">🇸🇪 = 0,862 USD</h2>
+            <h2 id="SEKRate">🇸🇪</h2>
             <p></p> 
           </div>
         </div>
         <div class="col-sm-3">
           <div class="well">
-            <h2 id="USDRate">🇺🇸 = 8,62 SEK</h2>
+            <h2 id="USDRate">🇺🇸</h2>
             <p></p> 
           </div>
         </div>
         <div class="col-sm-3">
           <div class="well">
             <h4>Update rates</h4>
-            <button onclick="updateCurrencyRates()" type="button" class="btn btn-primary">Update</button>
+            <button onclick="rates.updateCurrencyRates()" type="button" class="btn btn-primary">Update</button>
           </div>
         </div>
       </div>
@@ -67,7 +69,7 @@
         <div class="col-sm-3">
           <div class="well">
             <h4>Yearly salary</h4>
-            <p>Like the yankees do</p> 
+            <p>Yankee style</p> 
           </div>
         </div>
         <div class="col-sm-3">
@@ -100,7 +102,7 @@
         <div class="col-sm-3">
           <div class="well">
             <h4>Monthly salary</h4>
-            <p>In swede fashion</p> 
+            <p>In swedish fashion</p> 
           </div>
         </div>
         <div class="col-sm-3">
@@ -129,7 +131,7 @@
 
 
     </div>
-    <div class="col-sm-3"></div> <!-- TO CENTER col-sm-6 -->
+    <div class="col-sm-1"></div> <!-- TO CENTER col-sm-6 -->
   </div>
 </div>
 
