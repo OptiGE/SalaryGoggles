@@ -16,7 +16,11 @@ class salaryBoxController {
       return this.boxes;
     },
     transferTo(box1, box2){
+      console.log("Transferring " + box1.name + " to " + box2.name)
+      console.log(box1.value);
+      console.log(box1.transferFunction);
       box2.value = box1.transferFunction(box1.value);
+      console.log(box2.value);
     }
   }
 
@@ -40,7 +44,7 @@ class salaryBoxController {
         if (event.keyCode === 13) {
           event.preventDefault()
           alert(this.index);
-          sBoxController.updateSalaries(boxElement.value, this.index) //DEN TOLKAR INTE INDEX SOM EN SIFFRA
+          sBoxController.updateSalaries(boxElement.value, this.index)
           refreshScreen()
         }
       })

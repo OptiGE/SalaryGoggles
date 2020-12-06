@@ -21,10 +21,10 @@ function element (name) {
 }
 
 function refreshScreen () {
-  element('SEKRate').innerHTML = `🇸🇪 <span style="font-size:18px">= ${rates.USDtoSEK} USD</span>`
-  element('USDRate').innerHTML = `🇺🇸 <span style="font-size:18px">= ${rates.SEKtoUSD} SEK</span>`
+  element('SEKRate').innerHTML = `🇸🇪 <span style="font-size:18px">= ${rates.SEKtoUSD} USD</span>`
+  element('USDRate').innerHTML = `🇺🇸 <span style="font-size:18px">= ${rates.USDtoSEK} SEK</span>`
 
   sBoxController.salaryBoxes.getAll().forEach(sBox => {
-    sBox.element.value = sBox.value;
+    sBox.element.value = parseInt(sBox.value);
   });
 }

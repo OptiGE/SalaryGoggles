@@ -35,7 +35,7 @@ class currencyRate {
   updateCurrencyRates () {
     const rate = this.getCurrencyRates(this.currName1, this.currName2)
 
-    this[this.currName2 + 'to' + this.currName1] = (rate).toPrecision(5)
-    this[this.currName1 + 'to' + this.currName2] = (1.0 / rate).toPrecision(5)
+    this[this.currName1 + 'to' + this.currName2] = (rate).toPrecision(5)
+    this[this.currName2 + 'to' + this.currName1] = (1.0 / rate).toPrecision(5)
   }
 }
