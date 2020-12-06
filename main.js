@@ -1,9 +1,9 @@
 var rates
 var sBoxController
 
-window.onload = async function () {
+//Entry point
+window.onload = function () {
   rates = new currencyRate('USD', 'SEK')
-
   sBoxController = new salaryBoxController(
     [
       new salaryBox('YearSEK',  0, YS => YS / 12),
@@ -12,12 +12,7 @@ window.onload = async function () {
       new salaryBox('YearUSD',  0, YU => YU * rates.USDtoSEK)
     ]
   )
-
   refreshScreen()
-}
-
-function element (name) {
-  return document.getElementById(name)
 }
 
 function refreshScreen () {
@@ -27,4 +22,16 @@ function refreshScreen () {
   sBoxController.salaryBoxes.getAll().forEach(sBox => {
     sBox.element.value = parseInt(sBox.value);
   });
+}
+
+function element (name) {
+  return document.getElementById(name)
+}
+
+function prettyPrint(numStr){
+  
+}
+
+function nearestThousand(num){
+
 }
