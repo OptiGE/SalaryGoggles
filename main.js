@@ -1,15 +1,15 @@
-let rates
-let salaries
+var rates
+var sBoxController
 
 window.onload = async function () {
   rates = new currencyRate('USD', 'SEK')
 
-  salaries = new allSalaries(
+  sBoxController = new salaryBoxController(
     [
-      new salary('YearSEK', 0, YS => YS / 12),
-      new salary('MonthSEK', 0, MS => MS * SEKtoUSD),
-      new salary('MonthUSD', 0, MU => MU * 12),
-      new salary('YearUSD', 0, YU => YU * USDtoSEK)
+      new salaryBox('YearSEK',  0, YS => YS / 12),
+      new salaryBox('MonthSEK', 0, MS => MS * rates.SEKtoUSD),
+      new salaryBox('MonthUSD', 0, MU => MU * 12),
+      new salaryBox('YearUSD',  0, YU => YU * rates.USDtoSEK)
     ]
   )
 
@@ -23,4 +23,8 @@ function element (name) {
 function refreshScreen () {
   element('SEKRate').innerHTML = `🇸🇪 <span style="font-size:18px">= ${rates.USDtoSEK} USD</span>`
   element('USDRate').innerHTML = `🇺🇸 <span style="font-size:18px">= ${rates.SEKtoUSD} SEK</span>`
+
+  sBoxController.salaryBoxes.getAll().forEach(sBox => {
+    sBox.element.value = sBox.value;
+  });
 }

@@ -1,32 +1,46 @@
-class allSalaries {
-  constructor (salaries) {
-    this.salaries = salaries
+class salaryBoxController {
+  constructor (salaryBoxList) {
+    this.salaryBoxes.boxes = salaryBoxList
     this.addSalaryListeners()
+  }
+  
+  salaryBoxes = {
+    boxes: [],
+    length(){
+      return this.boxes.length;
+    },
+    get(index){
+      return this.boxes[index % this.boxes.length];
+    },
+    getAll(){
+      return this.boxes;
+    },
+    transferTo(box1, box2){
+      box2.value = box1.transferFunction(box1.value);
+    }
   }
 
   updateSalaries (updatedSalary, index) {
-    console.log(this.salaries)
-    console.log(index)
-    this.salaries[index].value = updatedSalary //
+    this.salaryBoxes.get(index).value = updatedSalary;
 
-    // Circular loop
-    const len = this.salaries.length
-    console.log(len)
-    console.log(index % len)
-    for (let i = index; i < len + index; i++) {
-      i = i % len
-      console.log(this.salaries[i].name)
-      this.salaries[i + 1].value = this.salaries[i].transferFunction(this.salaries[i].value)
+    for (let i = 0; i < this.salaryBoxes.length(); i++) {
+      let thisBox = this.salaryBoxes.get(index + i);
+      let nextBox = this.salaryBoxes.get(index + i + 1);
+
+      this.salaryBoxes.transferTo(thisBox, nextBox);
     }
   }
 
   addSalaryListeners () {
     let index = 0
-    this.salaries.forEach(salary => {
-      document.getElementById(salary.name).addEventListener('keydown', function (event) {
+    this.salaryBoxes.boxes.forEach(salaryBox => {
+      let boxElement = document.getElementById(salaryBox.name);
+      boxElement.index = index;
+      boxElement.addEventListener('keydown', function (event) {
         if (event.keyCode === 13) {
           event.preventDefault()
-          salaries.updateSalaries(salary.element.innerHTML, index) //DEN TOLKAR INTE INDEX SOM EN SIFFRA
+          alert(this.index);
+          sBoxController.updateSalaries(boxElement.value, this.index) //DEN TOLKAR INTE INDEX SOM EN SIFFRA
           refreshScreen()
         }
       })
@@ -35,7 +49,7 @@ class allSalaries {
   }
 }
 
-class salary {
+class salaryBox {
   constructor (name, value, transferFunction) {
     this.name = name
     this.value = value
