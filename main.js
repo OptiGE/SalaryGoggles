@@ -4,6 +4,7 @@ let salaries
 window.onload = async function () {
   rates = new currencyRate('USD', 'SEK')
 
+
   salaries = new allSalaries(
     [
       new salary('YearSEK', 0, YS => YS / 12),
