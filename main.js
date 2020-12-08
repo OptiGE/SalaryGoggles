@@ -28,10 +28,26 @@ function element (name) {
   return document.getElementById(name)
 }
 
-function prettyPrint(numStr){
+function prettyPrint(num){
+  return format(presicion(num, "FULL"), "SWE")
+}
+
+function format(num, format){
+  leftSideBackwards = parseInt(num).toString().split("").reverse();
+  
+  formatted = []
+  for (let i = 0; i < leftSideBackwards.length; i++){
+    formatted.push(leftSideBackwards[i]);
+
+    if(i%3 == 2){
+      formatted.push(" ");
+    }
+  }
+
+  return formatted;
   
 }
 
-function nearestThousand(num){
+function presicion(num, presicion){
 
 }
