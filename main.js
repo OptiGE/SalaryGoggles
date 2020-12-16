@@ -20,7 +20,7 @@ function refreshScreen () {
   element('USDRate').innerHTML = `🇺🇸 <span style="font-size:18px">= ${rates.USDtoSEK} SEK</span>`
 
   sBoxController.salaryBoxes.getAll().forEach(sBox => {
-    sBox.element.value = parseInt(sBox.value)
+    sBox.element.value = prettyPrint(sBox.value)
   })
 }
 
@@ -28,25 +28,26 @@ function element (name) {
   return document.getElementById(name)
 }
 
+
+
+//Prettyprint stuff below
+
 function prettyPrint (num) {
-  return format(presicion(num))
+  let presicion = element("presicionSlider").value
+  return formatter(presice(num, presicion))
 }
 
-function format (num, format = 'US') {
+function formatter (num) {
   leftSideBackwards = parseInt(num).toString().split('').reverse()
   rightSide = num % 1
-  if (rightSide != 0) {
-    rightSide = ',' + rightSide.toString()
-  } else {
-    rightSide = ''
+  if(rightSide != 0){
+    rightSide = "." + parseInt(rightSide * 100)
+  }
+  else{
+    rightSide = ""
   }
 
   let spacer = ' '
-  if (format == 'US') {
-    spacer = ' '
-  } else if (format == 'SE') {
-    spacer = '.'
-  }
 
   formattedLeftSide = []
   for (let i = 0; i < leftSideBackwards.length; i++) {
@@ -60,15 +61,12 @@ function format (num, format = 'US') {
   return formattedLeftSide.reverse().join('') + rightSide
 }
 
-function presicion (num, presicion="full") {
-  if (presicion == 'normal') {
-    alert("normal")
-    return parseInt(num)
-  } else if (presicion == 'thousandths') {
-    alert("thousandths")
+function presice (num, presicion=0) {
+  if (presicion == 0) {
     return Math.round(num / 1000) * 1000
+  } else if (presicion == 1) {
+    return parseInt(num)
   } else {
-    alert("full")
-    return num
+    return num.toFixed(2)
   }
 }
