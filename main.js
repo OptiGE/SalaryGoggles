@@ -28,26 +28,23 @@ function element (name) {
   return document.getElementById(name)
 }
 
-
-
-//Prettyprint stuff below
+// Prettyprint stuff below
 
 function prettyPrint (num) {
-  let presicion = element("presicionSlider").value
+  const presicion = element('presicionSlider').value
   return formatter(presice(num, presicion))
 }
 
 function formatter (num) {
   leftSideBackwards = parseInt(num).toString().split('').reverse()
   rightSide = num % 1
-  if(rightSide != 0){
-    rightSide = "." + parseInt(rightSide * 100)
-  }
-  else{
-    rightSide = ""
+  if (rightSide != 0) {
+    rightSide = '.' + parseInt(rightSide * 100)
+  } else {
+    rightSide = ''
   }
 
-  let spacer = ' '
+  const spacer = ' '
 
   formattedLeftSide = []
   for (let i = 0; i < leftSideBackwards.length; i++) {
@@ -61,7 +58,7 @@ function formatter (num) {
   return formattedLeftSide.reverse().join('') + rightSide
 }
 
-function presice (num, presicion=0) {
+function presice (num, presicion = 0) {
   if (presicion == 0) {
     return Math.round(num / 1000) * 1000
   } else if (presicion == 1) {
